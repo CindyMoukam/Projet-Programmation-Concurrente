@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>taketable</class>
+ <widget class="QWidget" name="taketable">
+ <widget class="QPushButton" name="backButton">
+  <property name="geometry">
+   <rect>
+    <x>10</x> <!-- Marge à gauche -->
+    <y>10</y> <!-- Marge en haut -->
+    <width>50</width>
+    <height>30</height>
+   </rect>
+  </property>
+  <property name="text">
+   <string>⬅</string> <!-- Icône ou texte du bouton -->
+  </property>
+ </widget>
+
+  <property name="geometry">
+   <rect>
+    <width>400</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Prendre une table</string>
+  </property>
+  <layout class="QVBoxLayout">
+
+    <!-- Icône -->
+    <item>
+     <layout class="QHBoxLayout">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <item>
+       <widget class="QLabel" name="iconLabel">
+        <property name="pixmap">
+         <pixmap>:static/search_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+
+   <!-- Texte en haut -->
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Veuillez insérer les informations nécessaires :</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Ligne 1 : Nom du responsable -->
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QLabel" name="responsableLabel">
+       <property name="text">
+        <string>Nom du responsable :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="responsableLineEdit"/>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Ligne 2 : Nombre de personnes -->
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QLabel" name="personLabel">
+       <property name="text">
+        <string>Nombre de personnes :</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="personSpinBox">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>12</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+    <!-- Message d'erreur sous le text input -->
+    <item>
+     <widget class="QLabel" name="errorLabel">
+      <property name="text">
+       <string></string> <!-- Texte initial vide -->
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set> <!-- Centrer le texte -->
+      </property>
+      <property name="styleSheet">
+       <string>color: red;</string> <!-- Texte en rouge -->
+      </property>
+     </widget>
+    </item>
+
+   <!-- Bouton de validation (Ligne 3) -->
+   <item>
+    <widget class="QPushButton" name="validateButton">
+     <property name="text">
+      <string>Valider</string>
+     </property>
+    </widget>
+   </item>
+
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/> <!-- Fichier des ressources contenant l'icône -->
+ </resources>
+</ui>

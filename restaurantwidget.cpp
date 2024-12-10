@@ -22,59 +22,6 @@ void RestaurantWidget::paintEvent(QPaintEvent *event)
     // Dessiner les meubles et équipements
     drawFridge(painter, 700, 50); // Dessiner le frigo dans le coin supérieur droit
     drawCooktop(painter, 650, 400); // Dessiner les plaques de cuisson en bas à droite
-
-    // Dessiner des tables et leurs chaises
-    drawTable(painter, 50, 50, 4); // Table de 4 personnes à la position (50, 50)
-    drawTable(painter, 300, 100, 6); // Table de 6 personnes à la position (300, 100)
-    drawTable(painter, 500, 100, 4); // Table de 4 personnes à la position (500, 100)
-
-    // Dessiner des chaises autour des tables
-    drawChairsForTable(painter, 50, 50, 4);  // Chaises pour la table de 4
-    drawChairsForTable(painter, 300, 100, 6); // Chaises pour la table de 6
-    drawChairsForTable(painter, 500, 100, 4); // Chaises pour la table de 4
-}
-
-void RestaurantWidget::drawTable(QPainter &painter, int x, int y, int size)
-{
-    // Dessiner la table (cercle pour simplifier)
-    painter.setBrush(QBrush(QColor("brown"))); // Couleur de la table
-    painter.setPen(QPen(Qt::black)); // Contour de la table
-    painter.drawEllipse(x, y, 80, 80); // Dessiner un cercle pour la table
-
-    // Dessiner le nom de la table (en fonction de sa taille)
-    painter.setPen(QPen(Qt::white)); // Texte blanc pour la taille de la table
-    painter.drawText(x + 10, y + 40, QString("Table %1").arg(size));
-}
-
-void RestaurantWidget::drawChair(QPainter &painter, int x, int y)
-{
-    // Dessiner la chaise (petit cercle pour simplifier)
-    painter.setBrush(QBrush(Qt::blue)); // Couleur de la chaise
-    painter.setPen(QPen(Qt::black)); // Contour de la chaise
-    painter.drawEllipse(x, y, 30, 30); // Dessiner un cercle pour la chaise
-}
-
-void RestaurantWidget::drawChairsForTable(QPainter &painter, int x, int y, int size)
-{
-    // Définir les positions des chaises en fonction de la taille de la table
-    int chairDistance = 40; // Distance entre les chaises
-
-    if (size == 4) {
-        // Chaises autour d'une table de 4
-        drawChair(painter, x - chairDistance, y); // Chaise gauche
-        drawChair(painter, x + 80, y); // Chaise droite
-        drawChair(painter, x, y - chairDistance); // Chaise haut
-        drawChair(painter, x, y + 80); // Chaise bas
-    }
-    else if (size == 6) {
-        // Chaises autour d'une table de 6
-        drawChair(painter, x - chairDistance, y); // Chaise gauche
-        drawChair(painter, x + 80, y); // Chaise droite
-        drawChair(painter, x, y - chairDistance); // Chaise haut
-        drawChair(painter, x, y + 80); // Chaise bas
-        drawChair(painter, x - chairDistance, y + 80); // Chaise bas gauche
-        drawChair(painter, x + 80, y + 80); // Chaise bas droite
-    }
 }
 
 void RestaurantWidget::drawTileFloor(QPainter &painter)

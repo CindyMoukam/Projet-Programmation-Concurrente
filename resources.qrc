@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="/">
+    <file>static/cuisson.png</file>
+    <file>static/pack.png</file>
+    <file>static/frigo.png</file>
+  </qresource>
+</RCC>

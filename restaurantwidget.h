@@ -15,9 +15,13 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    void drawTable(QPainter &painter, int x, int y, int size);
-    void drawChair(QPainter &painter, int x, int y);
-    void drawTileFloor(QPainter &painter);
+    // Méthodes pour dessiner les éléments du restaurant
+    void drawTable(QPainter &painter, int x, int y, int size);       // Dessiner une table
+    void drawChair(QPainter &painter, int x, int y);                // Dessiner une chaise
+    void drawChairsForTable(QPainter &painter, int x, int y, int size); // Dessiner les chaises autour d'une table
+    void drawTileFloor(QPainter &painter);                          // Dessiner le sol en carreaux
+    void drawFridge(QPainter &painter, int x, int y);               // Dessiner le frigo
+    void drawCooktop(QPainter &painter, int x, int y);              // Dessiner les plaques de cuisson
 };
 
 #endif // RESTAURANTWIDGET_H

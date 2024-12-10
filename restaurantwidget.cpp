@@ -22,7 +22,7 @@ void RestaurantWidget::paintEvent(QPaintEvent *event)
 
     // Dessiner les meubles et équipements
     drawFridge(painter, 700, 50); // Dessiner le frigo en utilisant une image
-    drawCooktop(painter, 650, 400); // Dessiner les plaques de cuisson en bas à droite
+    drawCooktop(painter, 650, 400); // Dessiner les plaques de cuisson en utilisant une image
 }
 
 void RestaurantWidget::drawTileFloor(QPainter &painter)
@@ -60,16 +60,16 @@ void RestaurantWidget::drawFridge(QPainter &painter, int x, int y)
     }
 }
 
+// Méthode pour afficher une image comme plaques de cuisson
 void RestaurantWidget::drawCooktop(QPainter &painter, int x, int y)
 {
-    painter.setBrush(QBrush(Qt::darkGray)); // Couleur des plaques de cuisson
-    painter.setPen(QPen(Qt::black)); // Contour des plaques de cuisson
-    painter.drawRect(x, y, 80, 40); // Dessiner un rectangle pour les plaques de cuisson
-
-    // Dessiner les cercles représentant les plaques de cuisson
-    painter.setBrush(QBrush(Qt::black)); // Plaques de cuisson noires
-    painter.drawEllipse(x + 10, y + 10, 20, 20); // Plaque 1
-    painter.drawEllipse(x + 40, y + 10, 20, 20); // Plaque 2
-    painter.drawEllipse(x + 10, y + 25, 20, 20); // Plaque 3
-    painter.drawEllipse(x + 40, y + 25, 20, 20); // Plaque 4
+    QPixmap cooktopImage(":/static/cuisson.png"); // Charge l'image depuis le dossier `static`
+    if (!cooktopImage.isNull()) {
+        painter.drawPixmap(x, y, 170, 100, cooktopImage); // Dessiner l'image avec une taille spécifique
+    } else {
+        // Dessiner un rectangle gris si l'image n'est pas trouvée
+        painter.setBrush(QBrush(Qt::darkGray));
+        painter.setPen(QPen(Qt::black));
+        painter.drawRect(x, y, 80, 40);
+    }
 }

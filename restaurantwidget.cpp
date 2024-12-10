@@ -1,5 +1,6 @@
 #include "restaurantwidget.h"
 #include <QPainter>
+#include <QPixmap>
 #include <QBrush>
 #include <QPen>
 #include <QColor> // Inclure QColor pour définir des couleurs personnalisées
@@ -20,7 +21,7 @@ void RestaurantWidget::paintEvent(QPaintEvent *event)
     drawTileFloor(painter);
 
     // Dessiner les meubles et équipements
-    drawFridge(painter, 700, 50); // Dessiner le frigo dans le coin supérieur droit
+    drawFridge(painter, 700, 50); // Dessiner le frigo en utilisant une image
     drawCooktop(painter, 650, 400); // Dessiner les plaques de cuisson en bas à droite
 }
 
@@ -45,12 +46,18 @@ void RestaurantWidget::drawTileFloor(QPainter &painter)
     }
 }
 
-// Méthodes pour dessiner le frigo et les plaques de cuisson
+// Méthode pour afficher une image comme frigo
 void RestaurantWidget::drawFridge(QPainter &painter, int x, int y)
 {
-    painter.setBrush(QBrush(Qt::lightGray)); // Couleur du frigo
-    painter.setPen(QPen(Qt::black)); // Contour du frigo
-    painter.drawRect(x, y, 60, 100); // Dessiner un rectangle pour le frigo
+    QPixmap fridgeImage(":/static/frigo.png"); // Charge l'image depuis le dossier `static`
+    if (!fridgeImage.isNull()) {
+        painter.drawPixmap(x, y, 100, 200, fridgeImage); // Dessiner l'image avec une taille spécifique
+    } else {
+        // Dessiner un rectangle gris si l'image n'est pas trouvée
+        painter.setBrush(QBrush(Qt::lightGray));
+        painter.setPen(QPen(Qt::black));
+        painter.drawRect(x, y, 60, 100);
+    }
 }
 
 void RestaurantWidget::drawCooktop(QPainter &painter, int x, int y)

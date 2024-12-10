@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VerifyReservation</class>
+ <widget class="QWidget" name="VerifyReservation">
+ <widget class="QPushButton" name="backButton">
+  <property name="geometry">
+   <rect>
+    <x>10</x> <!-- Marge à gauche -->
+    <y>10</y> <!-- Marge en haut -->
+    <width>50</width>
+    <height>30</height>
+   </rect>
+  </property>
+  <property name="text">
+   <string>⬅</string> <!-- Icône ou texte du bouton -->
+  </property>
+ </widget>
+
+  <property name="geometry">
+   <rect>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Vérification de la réservation</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+  <property name="alignment">
+    <set>Qt::AlignHCenter</set> <!-- Centrer tous les widgets -->
+   </property>
+
+   <!-- Icône -->
+   <item>
+    <layout class="QHBoxLayout">
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <item>
+      <widget class="QLabel" name="iconLabel">
+       <property name="pixmap">
+        <pixmap>:static/search_icon.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Texte en haut -->
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Veuillez vérifier votre réservation :</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+
+   <!-- Sélection avec input text -->
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Message d'erreur sous le text input -->
+   <item>
+    <widget class="QLabel" name="errorLabel">
+     <property name="text">
+      <string></string> <!-- Texte initial vide -->
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set> <!-- Centrer le texte -->
+     </property>
+     <property name="styleSheet">
+      <string>color: red;</string> <!-- Texte en rouge -->
+     </property>
+    </widget>
+   </item>
+
+   <!-- Bouton de validation -->
+   <item>
+    <widget class="QPushButton" name="validateButton">
+     <property name="text">
+      <string>Valider</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/> <!-- Fichier des ressources contenant l'icône -->
+ </resources>
+</ui>

@@ -11,25 +11,36 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Restaurant</string>
+   <string>Plats en attentes</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string>background-color: white;</string>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
+    <!-- En-tête -->
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="attenteLabel">
       <property name="text">
-       <string>Bienvenue dans notre restaurant</string>
+       <string>PLAT EN ATTENTE</string>
       </property>
       <property name="alignment">
-       <set>Qt::AlignmentFlag::AlignCenter</set>
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="styleSheet">
+       <string>font-weight: bold; font-size: 24px; margin-top: 10px;</string>
       </property>
      </widget>
     </item>
+    <!-- Scroll Area pour la liste des menus -->
     <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Démarrer</string>
+     <widget class="QScrollArea" name="menuScrollArea">
+      <property name="widgetResizable">
+       <bool>true</bool>
       </property>
+      <widget class="QWidget" name="menuScrollAreaWidget">
+       <layout class="QVBoxLayout" name="menuListLayout"/>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -40,7 +51,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>18</height>
     </rect>
    </property>
   </widget>

@@ -1,41 +1,16 @@
 #include "menu.h"
-#include "ui_menu.h"
-#include "plat.h"
-#include <QPushButton>
-#include <QDebug>
 
-MenuPage::MenuPage(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::MenuPage)
-{
-    ui->setupUi(this);
+menu::menu(const QString& name, const QString& photoPath, int prepTime)
+    : name(name), photoPath(photoPath), prepTime(prepTime) {}
 
-    ui->titleLayout->setAlignment(Qt::AlignHCenter);
-
-    // Définir une hauteur fixe pour le bouton et d'autres composants (optionnel si nécessaire)
-    ui->dishButton->setFixedHeight(100);
-    ui->drinkButton->setFixedHeight(100);
-
-    // Connecter les boutons à des actions
-    connect(ui->dishButton, &QPushButton::clicked, this, &MenuPage::onDishButtonClicked);
-    connect(ui->drinkButton, &QPushButton::clicked, this, &MenuPage::onDrinkButtonClicked);
+QString menu::getName() const {
+    return name;
 }
 
-MenuPage::~MenuPage()
-{
-    delete ui;
+QPixmap menu::getPhoto() const {
+    return QPixmap(photoPath);
 }
 
-void MenuPage::onDishButtonClicked()
-{
-    this->close();  // Par exemple, fermer la fenêtre
-    // Créer et afficher le widget
-    plat *platWindow = new plat();
-    platWindow->show();
-}
-
-void MenuPage::onDrinkButtonClicked()
-{
-    // Logique pour naviguer vers la page des boissons
-    qDebug() << "Naviguer vers la page des boissons";
+int menu::getPrepTime() const {
+    return prepTime;
 }

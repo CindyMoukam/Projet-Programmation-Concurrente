@@ -1,26 +1,21 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <QWidget>
+#include <QString>
+#include <QPixmap>
 
-namespace Ui {
-class MenuPage;  // Déclaration anticipée, définie par l'outil de Qt
-}
-
-class MenuPage : public QWidget
-{
-    Q_OBJECT
-
+class menu {
 public:
-    explicit MenuPage(QWidget *parent = nullptr);
-    ~MenuPage();
+    menu(const QString& name, const QString& photoPath, int prepTime);
 
-private slots:
-    void onDishButtonClicked();
-    void onDrinkButtonClicked();
+    QString getName() const;
+    QPixmap getPhoto() const;
+    int getPrepTime() const;
 
 private:
-    Ui::MenuPage *ui;  // Pointeur vers l'interface générée par Qt Designer
+    QString name;
+    QString photoPath;
+    int prepTime;
 };
 
 #endif // MENU_H

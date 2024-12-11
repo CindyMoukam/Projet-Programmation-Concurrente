@@ -1,5 +1,14 @@
 <RCC>
-    <qresource prefix="/">
-        <file>static/search_icon.png</file>
-    </qresource>
+  <qresource prefix="/">
+    <file>static/burger.jpeg</file>
+    <file>static/burger.jpeg</file>
+    <file>static/frites.jpeg</file>
+  </qresource>
 </RCC>
+
+
+
+
+
+
+

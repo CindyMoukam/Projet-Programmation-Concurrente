@@ -6,5 +6,6 @@
     <file>static/sol.jpg</file>
     <file>static/plat.png</file>
     <file>static/vide.png</file>
+    <file>static/micro.png</file>
   </qresource>
 </RCC>

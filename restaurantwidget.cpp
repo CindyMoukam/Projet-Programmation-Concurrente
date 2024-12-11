@@ -74,7 +74,7 @@ void RestaurantWidget::drawCooktop(QPainter &painter, int x, int y)
 // Méthode pour afficher l'image du plat au centre
 void RestaurantWidget::drawDish(QPainter &painter)
 {
-    QPixmap dishImage(":/static/plat.png"); // Charger l'image depuis le dossier `static`
+    QPixmap dishImage(":/static/vide.png"); // Charger l'image depuis le dossier `static`
     if (!dishImage.isNull()) {
         int dishWidth = 150; // Largeur réduite du plat
         int dishHeight = 150; // Hauteur réduite du plat

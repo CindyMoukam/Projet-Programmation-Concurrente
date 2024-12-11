@@ -4,5 +4,6 @@
     <file>static/pack.png</file>
     <file>static/frigo.png</file>
     <file>static/sol.jpg</file>
+    <file>static/plat.png</file>
   </qresource>
 </RCC>

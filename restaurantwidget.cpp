@@ -21,8 +21,9 @@ void RestaurantWidget::paintEvent(QPaintEvent *event)
     drawTileFloor(painter);
 
     // Dessiner les meubles et équipements
-    drawFridge(painter, 700, 50); // Dessiner le frigo en utilisant une image
-    drawCooktop(painter, 650, 400); // Dessiner les plaques de cuisson en utilisant une image
+    drawFridge(painter, 700, 50); // Dessiner le frigo
+    drawCooktop(painter, 650, 400); // Dessiner les plaques de cuisson
+    drawMicrowave(painter, 700, 300); // Dessiner le micro-ondes
 
     // Dessiner l'image du plat au centre
     drawDish(painter);
@@ -46,7 +47,7 @@ void RestaurantWidget::drawTileFloor(QPainter &painter)
 // Méthode pour afficher une image comme frigo
 void RestaurantWidget::drawFridge(QPainter &painter, int x, int y)
 {
-    QPixmap fridgeImage(":/static/frigo.png"); // Charge l'image depuis le dossier `static`
+    QPixmap fridgeImage(":/static/frigo.png"); // Charger l'image depuis le dossier `static`
     if (!fridgeImage.isNull()) {
         painter.drawPixmap(x, y, 100, 200, fridgeImage); // Dessiner l'image avec une taille spécifique
     } else {
@@ -60,7 +61,7 @@ void RestaurantWidget::drawFridge(QPainter &painter, int x, int y)
 // Méthode pour afficher une image comme plaques de cuisson
 void RestaurantWidget::drawCooktop(QPainter &painter, int x, int y)
 {
-    QPixmap cooktopImage(":/static/cuisson.png"); // Charge l'image depuis le dossier `static`
+    QPixmap cooktopImage(":/static/cuisson.png"); // Charger l'image depuis le dossier `static`
     if (!cooktopImage.isNull()) {
         painter.drawPixmap(x, y, 170, 100, cooktopImage); // Dessiner l'image avec une taille spécifique
     } else {
@@ -68,6 +69,20 @@ void RestaurantWidget::drawCooktop(QPainter &painter, int x, int y)
         painter.setBrush(QBrush(Qt::darkGray));
         painter.setPen(QPen(Qt::black));
         painter.drawRect(x, y, 80, 40);
+    }
+}
+
+// Méthode pour afficher une image comme micro-ondes
+void RestaurantWidget::drawMicrowave(QPainter &painter, int x, int y)
+{
+    QPixmap microwaveImage(":/static/micro.png"); // Charger l'image depuis le dossier `static`
+    if (!microwaveImage.isNull()) {
+        painter.drawPixmap(x, y, 100, 100, microwaveImage); // Dessiner l'image avec une taille spécifique
+    } else {
+        // Dessiner un rectangle gris si l'image n'est pas trouvée
+        painter.setBrush(QBrush(Qt::lightGray));
+        painter.setPen(QPen(Qt::black));
+        painter.drawRect(x, y, 80, 80);
     }
 }
 
@@ -96,4 +111,3 @@ void RestaurantWidget::drawDish(QPainter &painter)
         painter.drawRect(x, y, dishWidth, dishHeight);
     }
 }
-

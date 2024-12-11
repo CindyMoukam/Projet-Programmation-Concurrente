@@ -22,6 +22,7 @@ private:
     void drawTileFloor(QPainter &painter);                          // Dessiner le sol en carreaux
     void drawFridge(QPainter &painter, int x, int y);               // Dessiner le frigo
     void drawCooktop(QPainter &painter, int x, int y);              // Dessiner les plaques de cuisson
+    void drawDish(QPainter &painter);                              // Dessiner un plat au centre
 };
 
 #endif // RESTAURANTWIDGET_H

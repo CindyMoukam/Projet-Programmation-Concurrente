@@ -23,6 +23,9 @@ void RestaurantWidget::paintEvent(QPaintEvent *event)
     // Dessiner les meubles et équipements
     drawFridge(painter, 700, 50); // Dessiner le frigo en utilisant une image
     drawCooktop(painter, 650, 400); // Dessiner les plaques de cuisson en utilisant une image
+
+    // Dessiner l'image du plat au centre
+    drawDish(painter);
 }
 
 void RestaurantWidget::drawTileFloor(QPainter &painter)
@@ -67,3 +70,30 @@ void RestaurantWidget::drawCooktop(QPainter &painter, int x, int y)
         painter.drawRect(x, y, 80, 40);
     }
 }
+
+// Méthode pour afficher l'image du plat au centre
+void RestaurantWidget::drawDish(QPainter &painter)
+{
+    QPixmap dishImage(":/static/plat.png"); // Charger l'image depuis le dossier `static`
+    if (!dishImage.isNull()) {
+        int dishWidth = 150; // Largeur réduite du plat
+        int dishHeight = 150; // Hauteur réduite du plat
+
+        // Calculer la position pour centrer l'image
+        int x = (width() - dishWidth) / 2;
+        int y = (height() - dishHeight) / 2;
+
+        // Dessiner l'image réduite
+        painter.drawPixmap(x, y, dishWidth, dishHeight, dishImage);
+    } else {
+        // Dessiner un carré gris au centre si l'image n'est pas trouvée
+        painter.setBrush(QBrush(Qt::lightGray));
+        painter.setPen(QPen(Qt::black));
+        int dishWidth = 150;
+        int dishHeight = 150;
+        int x = (width() - dishWidth) / 2;
+        int y = (height() - dishHeight) / 2;
+        painter.drawRect(x, y, dishWidth, dishHeight);
+    }
+}
+

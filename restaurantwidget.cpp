@@ -17,7 +17,7 @@ void RestaurantWidget::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
 
-    // Dessiner le sol en carreaux
+    // Dessiner le sol avec une image
     drawTileFloor(painter);
 
     // Dessiner les meubles et équipements
@@ -27,22 +27,16 @@ void RestaurantWidget::paintEvent(QPaintEvent *event)
 
 void RestaurantWidget::drawTileFloor(QPainter &painter)
 {
-    painter.setPen(QPen(Qt::gray)); // Couleur des lignes de séparation des carreaux
-    int tileSize = 40;
-
-    // Boucle à travers les dimensions du sol
-    for (int x = 0; x < width(); x += tileSize) {
-        for (int y = 0; y < height(); y += tileSize) {
-            // Alterner les couleurs entre noir et blanc
-            if ((x / tileSize + y / tileSize) % 2 == 0) {
-                painter.setBrush(QBrush(Qt::white));  // Couleur blanche
-            } else {
-                painter.setBrush(QBrush(Qt::black));  // Couleur noire
-            }
-
-            // Dessiner le carreau
-            painter.drawRect(x, y, tileSize, tileSize); // Dessiner un carreau
-        }
+    QPixmap floorImage(":/static/sol.jpg"); // Charger l'image depuis le dossier `static`
+    if (!floorImage.isNull()) {
+        // Dessiner l'image en répétition pour couvrir tout le widget
+        QBrush brush(floorImage);
+        painter.setBrush(brush);
+        painter.drawRect(0, 0, width(), height()); // Couvrir tout le sol avec l'image
+    } else {
+        // Afficher un message d'erreur ou utiliser une couleur par défaut si l'image n'est pas trouvée
+        painter.setBrush(QBrush(Qt::gray));
+        painter.drawRect(0, 0, width(), height());
     }
 }
 

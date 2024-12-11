@@ -112,6 +112,7 @@ release/qrc_resources.cpp: ../../resources.qrc \
 		C:/Qt/6.8.1/mingw_64/bin/rcc.exe \
 		../../static/cuisson.png \
 		../../static/pack.png \
+		../../static/sol.jpg \
 		../../static/frigo.png
 	C:\Qt\6.8.1\mingw_64\bin\rcc.exe -name resources --no-zstd ..\..\resources.qrc -o release\qrc_resources.cpp
 
